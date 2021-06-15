@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap');
+:root{
+    /*===== Colores =====*/
+    --first-color: #1A73E8;
+    --input-color: #80868B;
+    --border-color: #DADCE0;}
 body {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +22,33 @@ h2{
     font-weight: bold;
     font-size: 26px;
 }
-
-*, *::before, *::after {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.l-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  .form__button{
+    display: block;
+    margin-left: auto;
+    padding: .75rem 2rem;
+    outline: none;
+    border: none;
+    background-color:  #000000;
+    color: #fff;
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .form__button:hover{
+    box-shadow: 0 10px 36px rgba(0,0,0,.15);
   }
