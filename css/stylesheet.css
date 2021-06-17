@@ -95,7 +95,9 @@ h2 {
   max-width: 95vw;
 }
 .form__title2 {
+  margin-top: 5px;
   margin-left: 1.2rem;
+  padding-right:1rem;
 }
 
 .form__button {
