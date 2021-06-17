@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap');
+
 body {
     display: flex;
     flex-direction: column;
@@ -16,6 +17,7 @@ h2{
     font-style: normal;
     font-weight: bold;
     font-size: 26px;
+    align-self: left;
 }
 *,
 *::before,
@@ -26,14 +28,83 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+  }
+  .form__title{
+    margin-bottom: 3rem;
+  }
+  .form__div{
+    position: relative;
+    height: 48px;
+    margin-bottom: 1.5rem;
+  }
+  .form__input{
+    position: absolute;
+    width: 794px;
+    height: 69px;
+    font-family:Red Hat Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    outline: none;
+    padding: 1rem;
+    background: none;
+    z-index: 1;
+  }
+  .form__input2{
+    position: absolute;
+    width: 570px;
+    height: 69px;
+    font-family:Red Hat Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    outline: none;
+    padding: 1rem;
+    background: none;
+    z-index: 1;
+  }
+  .form__label{
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    padding: 0 .25rem;
+    background-color: #fff;
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    transition: .3s;
+  }
+  .url{
+    margin-left: 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+  }
+  .form__title2{
+    margin-left: 1.2rem;
   }
   .form__button{
+    position: absolute;
     display: block;
     margin-left: auto;
-    padding: .75rem 2rem;
+    margin-top: 3rem;
     outline: none;
     border: none;
+    width: 794px;
+    height: 69px;
     background-color:  #000000;
     color: #fff;
     font-family: Red Hat Display;
@@ -45,5 +116,22 @@ h2{
     transition: .3s;
   }
   .form__button:hover{
-    box-shadow: 0 10px 36px rgba(0,0,0,.15);
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+  }
+  .form__input:focus + .form__label{
+    top: -.5rem;
+    left: .8rem;
+    color: black;
+    z-index: 10;
+  }
+  form__input:not(:placeholder-shown).form__input:not(:focus)+ .form__label{
+    top: -.5rem;
+    left: .8rem;
+    z-index: 10;
+  }
+  .form__input:focus{
+    border: 2px solid #5551FF;
+  }
+  .form__input2:focus{
+    border: 2px solid #5551FF;
   }
