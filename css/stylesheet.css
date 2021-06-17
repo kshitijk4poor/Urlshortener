@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap');
 
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 h1{
     font-family: Red Hat Display;
@@ -43,7 +43,6 @@ h2{
     margin-bottom: 1.5rem;
   }
   .form__input{
-    position: absolute;
     width: 794px;
     height: 69px;
     font-family:Red Hat Display;
@@ -59,7 +58,6 @@ h2{
     z-index: 1;
   }
   .form__input2{
-    position: absolute;
     width: 570px;
     height: 69px;
     font-family:Red Hat Display;
@@ -87,17 +85,14 @@ h2{
     transition: .3s;
   }
   .url{
-    margin-left: 0rem;
     display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: left;
+    margin-top: 2.5rem;
   }
   .form__title2{
     margin-left: 1.2rem;
   }
+
   .form__button{
-    position: absolute;
     display: block;
     margin-left: auto;
     margin-top: 3rem;
@@ -125,6 +120,11 @@ h2{
     z-index: 10;
   }
   form__input:not(:placeholder-shown).form__input:not(:focus)+ .form__label{
+    top: -.5rem;
+    left: .8rem;
+    z-index: 10;
+  }
+  form__input2:not(:placeholder-shown).form__input:not(:focus)+ .form__label{
     top: -.5rem;
     left: .8rem;
     z-index: 10;
