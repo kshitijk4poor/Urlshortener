@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap");
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+}
+h2 {
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.l-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+}
+.form__title {
+  margin-bottom: 3rem;
+}
+.form__div {
+  position: relative;
+  height: 48px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  max-width: 90vw;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.form__input {
+  height: 69px;
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  outline: none;
+  padding: 1rem;
+  background: none;
+  z-index: 1;
+  flex: 1;
+}
+.form__input2 {
+  height: 70px;
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  outline: none;
+  padding: 1rem;
+  background: none;
+  z-index: 1;
+  flex: 1;
+}
+.form__label {
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+  padding: 0 0.25rem;
+  background-color: #fff;
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  transition: 0.3s;
+}
+.url {
+  display: flex;
+  margin-top: 2.5rem;
+  max-width: 770px;
+  max-width: 95vw;
+}
+.form__title2 {
+  margin-top: 5px;
+  margin-left: 1.2rem;
+  padding-right:1rem;
+}
+
+.form__button {
+  display: block;
+  margin-left: auto;
+  margin-top: 3rem;
+  outline: none;
+  border: none;
+  height: 69px;
+  width: 120vh;
+  background-color: #000000;
+  color: #fff;
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form__button:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+.form__input:focus + .form__label,
+form__input:not(:placeholder-shown).form__input:not(:focus) + .form__label,
+form__input2:not(:placeholder-shown).form__input:not(:focus) + .form__label {
+  top: -1.5rem;
+  left: 0.8rem;
+  color: black;
+  z-index: 10;
+}
+.form__input:not(:placeholder-shown).form__input:not(:focus)+ .form__label{
+  top: -1.5rem;
+  left: .8rem;
+  font-weight: 500;
+  z-index: 10;
+}
+.form__input:focus {
+  border: 2px solid #5551ff;
+}
+.form__input2:focus {
+  border: 2px solid #5551ff;
+}
+
+@media (max-width: 850px) {
+  .form__title2 {
+    display: none;
+  }
+}
