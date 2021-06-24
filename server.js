@@ -9,6 +9,8 @@ mongoose.connect('mongodb://localhost/urlShortener', {
 })
 // serves css as static
 app.use(express.static(path.join(__dirname,"public")));
+app.set('view', path.join(__dirname, 'views'));
+
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 //render HTML
@@ -27,7 +29,10 @@ app.post('/shortUrls', async (req, res) => {
         return res.send("shortUrl already exists");
     };
     try{
-        await ShortUrl.create({ full: req.body.fullUrl,short:req.body.shortUrl })
+        await ShortUrl.create({ full: req.body.fullUrl,short:req.body.shortUrl }).then(shortUrl => {
+            return res.render('url', {shortUrl: shortUrl})
+        });
+        
     }catch(e){
         res.send("Database error")
         throw e;
