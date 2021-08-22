@@ -1,12 +1,14 @@
 const express = require('express');
 const path = require('path');
-const app = express();
 const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrl')
+require("dotenv").config();
 
-mongoose.connect('mongodb+srv://admin:<hBp33jPIKqDtwRYG>@cluster0.bnnyf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+// setup app and database
+mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true, useUnifiedTopology: true
-})
+});
+const app = express();
 
 // serves css as static
 app.use(express.static(path.join(__dirname,"public")));
@@ -16,38 +18,43 @@ app.set('view engine', 'ejs')
 
 //render HTML
 app.get('/', async (req, res) => {
-    const shortUrls = await ShortUrl.find()
-    res.sendFile(__dirname + "/index.html", { shortUrls: shortUrls });
+    res.sendFile(path.join(__dirname,"views","index.html"));
 
 })
 
-//shortUrls
+// creates short url
 app.post('/shortUrls', async (req, res) => {
     if(!req.body.shortUrl || !req.body.fullUrl){
         return res.send("No full url/short url provided")
+    }else if(req.body.shortUrl.length < 3){
+        return res.send("Short url length cannot be less than 3 characters");
     }
-    const urlExists = await ShortUrl.find({short: req.body.shortUrl})
-    if(urlExists.length != 0){
-        return res.send("shortUrl already exists");
+    const urlExists = await ShortUrl.exists({short: req.body.shortUrl})
+    if(urlExists){
+        return res.send("short url already exists");
     };
-    console.log(urlExists)
     try{
         await ShortUrl.create({ full: req.body.fullUrl,short:req.body.shortUrl }).then(shortUrl => {
             return res.render('url', {shortUrl: shortUrl})
         });
         
     }catch(e){
-        res.send("Database error"+e)
-        throw e;
+        res.send("database error")
+        console.log(e);
     }
 })
+
+// open short url
 app.get("/:url",async (req,res) => {
     const url = await ShortUrl.findOne({short: req.params.url});
     if(!url){
-        return res.send("404")
+        return res.sendFile(path.join(__dirname,"views","404.html"))
     }
     return res.redirect(url.full);
 })
 
-//runs on port 5000
-app.listen(process.env.PORT || 5000, () => {console.log("om")});
+// Start listening
+const port = process.env.PORT || 8080
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`)
+});
