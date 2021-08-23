@@ -101,7 +101,7 @@ h2 {
 }
 
 .form__button {
-  display: flex;
+  display: block;
   margin-top: 3rem;
   outline: none;
   border: none;
