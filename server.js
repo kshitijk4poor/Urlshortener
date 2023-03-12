@@ -2,10 +2,10 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrl')
-require("dotenv").config();
+
 
 // setup app and database
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect('mongodb://localhost/urlShortener', {
     useNewUrlParser: true, useUnifiedTopology: true
 });
 const app = express();
